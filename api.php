@@ -14,19 +14,33 @@ if ($conn->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$name = trim($_POST["name"]);
+	$lname = trim($_POST["lname"]);
 	$email = trim($_POST["email"]);
-	$message = trim($_POST["message"]);
+	$phone = trim($_POST["phone"]);
+	$zip = trim($_POST["zip"]);
+	$gender = trim($_POST["gender"]);
+	$dia = trim($_POST["dia"]);
+	$mes = trim($_POST["mes"]);
+	$year = trim($_POST["year"]);
+	$colegio = trim($_POST["colegio"]);
 
-	if ($name == "" || $email == "" || $message == "") {
+	
+	if ($name == "" ||	$lname == "" ||	$email == "" ||	$phone == "" ||	$zip == "" ||	$gender == "" ||	$dia == "" ||	$mes == "" ||	$year == "" ||	$colegio == "" ) {
 		echo "Todos los campos son requeridos";
 	} else {
-		$sql = "INSERT INTO mensajes (nombre, correo, mensaje) VALUES ('$name', '$email', '$message')";
+		$sql = "INSERT INTO mensajes (name,lname,email,phone,zip,gender,dia,mes,year,colegio) VALUES ('$name','$lname','$email','$phone','$zip','$gender','$dia','$mes','$year','$colegio')";
+		$resultado = array();
 
 		if ($conn->query($sql) === TRUE) {
-			echo "El mensaje ha sido enviado y almacenado en la base de datos";
+			 echo "El mensaje ha sido enviado y almacenado en la base de datos";
+			 $resultado["exito"] = true;
+			//$resp = "OK";
 		} else {
 			echo "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde";
+			$resultado["exito"] = false;
 		}
+			echo json_encode($resultado);
+
 	}
 }
 

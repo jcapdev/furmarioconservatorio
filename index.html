@@ -57,8 +57,7 @@
 	</head>
 
 <body>
-	<div class="container">
-		<h1>Formulario de contacto</h1>
+	<div class="container">		
 		<div class="overlay">
 			<div class="container-fluid content">
 				<div class="row content">
@@ -128,13 +127,11 @@
 															style="font-size: 12px; margin-bottom: 0px; float: left; margin-top: 10px; margin-right: 20px;">
 															Eres:</h2>
 														<div class="some-class">
-															<input type="radio" class="radio" name="gender"
-																value="hombre" id="gender2" checked
+															<input type="radio" class="radio" name="gender"	value="hombre" id="hombre" checked
 																style="width: 2em; height: 2em;" />
 															<label for="gender2"
 																style="font-size: 12px; margin-bottom: 0px; margin-top: 6px; margin-left:10px;">Hombre</label>
-															<input type="radio" class="radio" name="gender"
-																value="mujer" id="gender1"
+															<input type="radio" class="radio" name="gender"	value="mujer" id="mujer"
 																style="width: 2em; height: 2em;" />
 															<label for="gender1"
 																style="font-size: 12px; margin-bottom: 0px; margin-top: 6px; margin-left:10px; margin-right: 20px;">Mujer
@@ -144,27 +141,25 @@
 												</div>
 											</div>
 											<div class="control-group">
-
 												<div class="form-group floating-label-form-group controls">
 													<h2 class="blue" style="font-size: 12px; margin-bottom: 0px;">Fecha
 														de nacimiento</h2>
-													<div class="col-xs-4 no-pad" style="padding-right: 4px;">
-														<label for="dia" class="sr-only control-label">Día</label>
-														<select class="form-control input-lg" name="dia" id="dia"
+													<div class="col-xs-4 no-pad" style="padding-left: 4px;">
+														<label for="year" class="sr-only control-label">Año</label>
+														<select class="form-control input-lg" onchange="SelectYear()" name="year" id="year"
 															style="color: #999">
-															<option value='0'>Día</option>
-															<option value='1'>1</option>
-															<option value='2'>2</option>
-															<option value='3'>3</option>
+															<option value=''>Año</option>
+															<!-- <option value='0'>Año</option>
+															<option value='1992'>1992</option>															 -->
 														</select>
 														<span class="help-block text-danger"></span>
-													</div>
+													</div>													
 													<div class="col-xs-4 no-pad"
 														style="padding-left: 4px; padding-right: 4px;">
 														<label for="mes" class="sr-only control-label">Mes</label>
 														<select class="form-control input-lg" name="mes" id="mes"
-															style="color: #999">
-															<option value='0'>Mes</option>
+															style="color: #999"  onchange="mostrarDiasDelMes(this.value)">
+															<option value=''>Mes</option>
 															<option value='1'>Ene</option>
 															<option value='2'>Feb</option>
 															<option value='3'>Mar</option>
@@ -180,26 +175,24 @@
 														</select>
 														<span class="help-block text-danger"></span>
 													</div>
-
-
-													<div class="col-xs-4 no-pad" style="padding-left: 4px;">
-														<label for="year" class="sr-only control-label">Año</label>
-														<select class="form-control input-lg" name="year" id="year"
+													<div class="col-xs-4 no-pad" style="padding-right: 4px;">
+														<label for="dia" class="sr-only control-label">Día</label>
+														<select class="form-control input-lg" name="dia" id="dia"
 															style="color: #999">
-															<option value='0'>Año</option>
-															<option value='1992'>1992</option>															
+															<option value='0'>Dia</option>															
 														</select>
 														<span class="help-block text-danger"></span>
-													</div>
+													</div>													
 												</div>
 												<div class="control-group">
 													<div class="form-group floating-label-form-group controls">
 														<h2 class="blue" style="font-size: 12px; margin-bottom: 0px;">
 															bachillerato:</h2>
 															<select class="form-control input-lg" name="colegio" id="colegio"	style="color: #999">
-																<option value='0'>propedeutico</option>		
-																<option value='0'>Diplomado</option>		
-																<option value='0'>OBOE</option>		
+																<option value=''>curso</option>		
+																<option value='1'>propedeutico</option>		
+																<option value='2'>Diplomado</option>		
+																<option value='3'>OBOE</option>		
 															</select>
 													</div>
 													<!-- pendiente captcha -->
@@ -262,8 +255,7 @@
 				</div>
 			</div>
 		</div>
-
-		<div id="response"></div>
+		
 	</div>
 	<script src="https://www.vpromo.club/realdelbosque/js/vegas/vegas.min.js"></script>	
 
